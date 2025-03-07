@@ -1,0 +1,15 @@
+html,
+body,
+div,
+canvas {
+    margin: 0;
+    padding: 0;
+}
+
+.use_whole_screen {
+    position: absolute;
+}
+
+.invisible {
+    opacity: 0%;
+}
