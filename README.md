@@ -1,2 +1,4 @@
-# border_gore2
- 
+# Border Gore
+## A minimalist browser-based strategy game
+
+WIP.
