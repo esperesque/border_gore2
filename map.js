@@ -13,6 +13,8 @@ let hit_ctx;
 
 let region_data;
 
+let hovering_region = "none"; // track the region currently being hovered, str is the region id
+
 let regions = new Map();
 
 let previousX = 0, previousY = 0;
@@ -57,8 +59,25 @@ function update_panning(e) {
 function onMouseMove(e) {
     if (panning) {
         update_panning(e);
-        draw_map();
+        //draw_map();
     }
+    else {
+        const mousePos = {
+            x: e.clientX - map_canvas.offsetTop,
+            y: e.clientY - map_canvas.offsetLeft
+        };
+        const pixel = hit_ctx.getImageData(mousePos.x, mousePos.y, 1, 1).data;
+        color = [pixel[0], pixel[1], pixel[2]]
+        const r = find_region_by_color(color);
+        if (r == null) {
+            hovering_region = "none"
+        }
+        else {
+            hovering_region = r;
+        }
+        //draw();
+    }
+    draw_map();
 }
 
 // Zoom
@@ -148,7 +167,48 @@ function draw_map() {
         hit_ctx.fill(p);
 
         // Draw the visible map
-        map_ctx.fillStyle = reg.get_display_color();
+
+        let display_color = reg.get_display_color();
+        // If region is not being hovered, make the color darker
+        if (hovering_region == reg.id) {
+            // Todo: make a utility function for this
+
+            // Doesn't work because the hex code isn't being converted, I think
+
+            /*
+            let r = parseInt(display_color.slice(1, 3), 16);
+            let g = parseInt(display_color.slice(3, 5), 16);
+            let b = parseInt(display_color.slice(5, 7), 16);
+            r = Math.floor(r * 0.8);
+            g = Math.floor(g * 0.8);
+            b = Math.floor(b * 0.8);
+            let rh = r.toString(16).padStart(2, '0');
+            let gh = g.toString(16).padStart(2, '0');
+            let bh = b.toString(16).padStart(2, '0');
+            let newhex = '#' + [rh, gh, bh].join('');
+            console.log(newhex);
+            display_color = newhex;
+            */
+
+            display_color = 'rgb(0,255,250)'
+        }
+
+        map_ctx.fillStyle = display_color;
         map_ctx.fill(p);
     });
+}
+
+// Returns the region-id of the region with the matching color-id
+function find_region_by_color(pixel_rgb) {
+    let r;
+
+    region_data.region_list.forEach((e) => {
+
+        let reg = region_data.regions[e];
+
+        if (reg.color_id[0] == pixel_rgb[0] && reg.color_id[1] == pixel_rgb[1] && reg.color_id[2] == pixel_rgb[2]) {
+            r = e;//reg;
+        }
+    })
+    return r;
 }

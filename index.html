@@ -5,12 +5,33 @@
     <script src="maps/earth_medium.js"></script>
     <script src="map.js"></script>
     <script src="world.js"></script>
+    <script src="setup.js"></script>
 </head>
 
 <body>
-    <canvas width="1600" height="900" id="map_canvas" class="use_whole_screen"></canvas>
-    <canvas width="1600" height="900" id="shadow_canvas" class="invisible use_whole_screen"></canvas>
-    <canvas width="1600" height="900" id="hit_canvas" class="invisible use_whole_screen"></canvas>
+    <div id="main">
+        <div id="setup_screen" class="center_container use_whole_screen">
+            <div class="window_500 grey_bg">
+                <h1>Game Setup</h1>
+                <button id="start_button" class="default_button">Start Game</button>
+            </div>
+            <!--
+            <div class="large_window menu_window">
+                <h1 class="center_label">Game Setup</h1>
+                <h2 class="center_label">Select Map</h2>
+                <p>-Coming Soon-</p>
+                <h2 class="center_label">Select Empire</h2>
+                <p>-Coming Soon-</p>
+                <button id="start_button" class="default_button">Start Game</button>
+            </div>
+            -->
+        </div>
+        <div id="game_area">
+            <canvas width="1600" height="900" id="map_canvas" class="use_whole_screen"></canvas>
+            <canvas width="1600" height="900" id="shadow_canvas" class="invisible use_whole_screen"></canvas>
+            <canvas width="1600" height="900" id="hit_canvas" class="invisible use_whole_screen"></canvas>
+        </div>
+    </div>
 </body>
 
 </html>

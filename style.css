@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap');
+
 html,
 body,
 div,
@@ -6,10 +8,65 @@ canvas {
     padding: 0;
 }
 
+/* Container for everything */
+#main {
+    height: 100%;
+    width: 100%;
+    /* Set the default font */
+    font-family: "Nunito Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+    font-variation-settings:
+        "wdth" 100,
+        "YTLC" 500;
+}
+
 .use_whole_screen {
     position: absolute;
+    height: 100%;
+    width: 100%;
 }
 
 .invisible {
     opacity: 0%;
+}
+
+.large_window {
+    margin-top: 5%;
+    margin-bottom: 5%;
+    margin-left: 10%;
+    margin-right: 10%;
+    height: 80%;
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: #a0a0a0cc;
+}
+
+.center_label {
+    text-align: center;
+}
+
+.default_button {
+    width: 20vw;
+    height: 5vh;
+}
+
+/* Contents should be centered horizontally and vertically */
+.center_container {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.window_500 {
+    height: 500px;
+    width: 800px;
+}
+
+.grey_bg {
+    background-color: #a0a0a050;
 }

@@ -11,6 +11,7 @@ let boundary_left = -10000;
 class Region {
     constructor(rdata) {
         // rdata is a province object from one of the maps in the maps folder
+        this.id = rdata.id;
         this.path = rdata.path;
         this.color_id = rdata.color_id;
     }
