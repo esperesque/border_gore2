@@ -9,4 +9,5 @@ function page_setup() {
 function create_game() {
     document.getElementById("setup_screen").style.display = "none";
     document.getElementById("game_area").style.display = "inline";
+    setInterval(tick, 10);
 }

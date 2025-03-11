@@ -14,6 +14,7 @@ let hit_ctx;
 let region_data;
 
 let hovering_region = "none"; // track the region currently being hovered, str is the region id
+let selected_region = "none";
 
 let regions = new Map();
 
@@ -136,12 +137,10 @@ function initialize_navigation() {
         const r = find_region_by_color(color); // This returns the ID, not the whole object
         //console.log(r);
         if (r != null) {
-            let reg = region_data.regions[r];
+            selected_region = r;
+            let reg = region_data.regions[r]; // Do get from map instead? Skips path data and other stuff
             show_region_window(reg);
-            //windows_test();
-            //selected_region = r;
-            //showRegionWindow(regions.get(r));
-            //draw()
+            draw_map()
         }
 
     })

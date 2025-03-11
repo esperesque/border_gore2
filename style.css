@@ -182,3 +182,18 @@ p {
     font-weight: 400;
     font-style: normal;
 }
+
+/* Progress bars */
+.progress_bar {
+    height: 8vh;
+}
+
+.bar_bg {
+    width: 100%;
+    background-color: #ff0000;
+}
+
+.bar_fg {
+    width: 50%;
+    background-color: #00ff00;
+}
