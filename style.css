@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 
 html,
 body,
@@ -7,6 +7,38 @@ canvas {
     margin: 0;
     padding: 0;
 }
+
+h1,
+h2,
+h3,
+p {
+    margin: 0;
+}
+
+.pt-serif-regular {
+    font-family: "PT Serif", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.pt-serif-bold {
+    font-family: "PT Serif", serif;
+    font-weight: 700;
+    font-style: normal;
+}
+
+.pt-serif-regular-italic {
+    font-family: "PT Serif", serif;
+    font-weight: 400;
+    font-style: italic;
+}
+
+.pt-serif-bold-italic {
+    font-family: "PT Serif", serif;
+    font-weight: 700;
+    font-style: italic;
+}
+
 
 /* Container for everything */
 #main {
@@ -69,4 +101,84 @@ canvas {
 
 .grey_bg {
     background-color: #a0a0a050;
+}
+
+.no_mouse {
+    pointer-events: none;
+}
+
+.grab_mouse {
+    pointer-events: auto;
+}
+
+.uitest {
+    background-color: #70a0ff99;
+    margin: 20px;
+}
+
+.header {
+    height: 10%;
+}
+
+/* Vertically stack child elements */
+.vbox {
+    display: flex;
+    flex-direction: column;
+}
+
+.hbox {
+    display: flex;
+    flex-direction: row;
+}
+
+.ui_head {
+    height: 8%;
+}
+
+.ui_body {
+    height: 92%;
+}
+
+.side_column {
+    width: 25%;
+}
+
+.main_column {
+    width: 50%;
+}
+
+/* For UI elements that use 70% of their column */
+.column_child_1 {
+    flex-grow: 1;
+    /* Unnecessary, this is the default value */
+}
+
+.column_child_3 {
+    flex-grow: 3;
+}
+
+/* Area containing a window, such as details_area */
+.window_area {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.window {
+    width: 90%;
+    height: 90%;
+}
+
+/* Window styles */
+/* White, slightly transparent */
+.window_white {
+    background-color: #ffffffc0;
+}
+
+/* Text styles */
+.window_title {
+    font-size: 30px;
+    font-family: "PT Serif", serif;
+    font-weight: 400;
+    font-style: normal;
 }

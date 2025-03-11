@@ -6,6 +6,7 @@
     <script src="map.js"></script>
     <script src="world.js"></script>
     <script src="setup.js"></script>
+    <script src="windows.js"></script>
 </head>
 
 <body>
@@ -30,6 +31,17 @@
             <canvas width="1600" height="900" id="map_canvas" class="use_whole_screen"></canvas>
             <canvas width="1600" height="900" id="shadow_canvas" class="invisible use_whole_screen"></canvas>
             <canvas width="1600" height="900" id="hit_canvas" class="invisible use_whole_screen"></canvas>
+        </div>
+        <div id="ui_area" class="use_whole_screen no_mouse vbox">
+            <div id="status_bar" class="ui_head"></div>
+            <div id="center_ui" class="ui_body hbox">
+                <div id="left_column" class="vbox side_column"></div>
+                <div id="mid_column" class="vbox main_column"></div>
+                <div id="right_column" class="vbox side_column">
+                    <div id="details_area" class="uitest window_area column_child_3"></div>
+                    <div id="command_area" class="uitest column_child_1"></div>
+                </div>
+            </div>
         </div>
     </div>
 </body>

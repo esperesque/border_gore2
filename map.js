@@ -123,6 +123,29 @@ function initialize_navigation() {
 
     load_regions();
 
+    hit_canvas.addEventListener('click', (e) => {
+        // Figure out which area was clicked based on underlying pixel color
+        const mousePos = {
+            x: e.clientX - map_canvas.offsetTop,
+            y: e.clientY - map_canvas.offsetLeft
+        };
+        // Get pixel under cursor
+        const pixel = hit_ctx.getImageData(mousePos.x, mousePos.y, 1, 1).data;
+
+        color = [pixel[0], pixel[1], pixel[2]]
+        const r = find_region_by_color(color); // This returns the ID, not the whole object
+        //console.log(r);
+        if (r != null) {
+            let reg = region_data.regions[r];
+            show_region_window(reg);
+            //windows_test();
+            //selected_region = r;
+            //showRegionWindow(regions.get(r));
+            //draw()
+        }
+
+    })
+
     hit_canvas.addEventListener("mousedown", (e) => {
         panning = true
         previousX = e.clientX;
